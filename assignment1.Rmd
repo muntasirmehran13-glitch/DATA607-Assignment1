@@ -4,7 +4,35 @@ author: "Muntasir"
 date: "2026-09-03"
 output: html_document
 ---
+# Introduction 
+For this assignment, I will utilize an anime dataset pulled from MyAnimeList and publicly open in TidyTuesday project. The dataset will have trats like genre, type, source material, episodes, ratings, popularity, and even studios.
 # Approach
 For this assignment, I hope to use a MyAnmeList anime dataset that's found in the TidyTuesday GitHub repository. The core question to be answered is whether traits like genre, format, etc. are correlated to higher viewer ratings. I will start with a smaller data frame that contains variables most suitable for the question, with anime score being the primary output variable.
 I will study the framework of the dataset and identify which columns are relevant for my investigation. I then hope to pinpoint those columns, providing succint labels and ensure categorical or numerical identifiers are showcased accordingly. It's also vital I look for columns that ought to be transformed in order to make data simpler to comprehend.
 I should be ready for any data-related challenges. For instance, some show titles could have missing information when it coems to attributes while some shows might fall under several genres.I will need to outline these traits before determining how to present them through code. 
+```{r}
+library(tidyverse)
+
+anime <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2019/2019-04-23/tidy_anime.csv")
+
+glimpse(anime)
+
+```
+```{r}
+anime_selected <- anime %>%
+  select(name, type, genre, episodes, score, popularity) %>%
+  rename(
+    anime_title = name, 
+    anime_type = type, 
+    viewer_score = score,
+    popularity_rank = popularity, 
+  ) 
+
+anime_selected %>%
+  distinct(anime_title, .keep_all = TRUE)%>%
+  head(10)
+```
+# Conclusion
+The dataset has been changed into a smaller set of variables linked to anime ratings and popularity. In the future, I would review how traits like genre, type, and episode count correlates with viewer scores.
+
+
