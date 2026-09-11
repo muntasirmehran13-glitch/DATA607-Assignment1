@@ -1,0 +1,10 @@
+---
+title: "SQL AND R - MOVIES"
+author: "MUNTASIR"
+format: html
+editor: visual
+---
+
+#Approach
+
+I plan to begin by loading the penguin preciditons dataset into R and examinng the distribution of the authentic sex variable. I will compute the null error rate using the majortity class and make a visualization of the actual class distribution. I will then make predicted categories from the gender probability using thresholds like 0.2, 0.5, etc. I will make TP, TN, FP, FN. (approach is tentative)
